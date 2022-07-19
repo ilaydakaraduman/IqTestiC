@@ -1,0 +1,604 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
+#include <string.h>
+#include <Windows.h>
+#include <time.h>
+#include <math.h>
+int a,i;
+float toplamsure=0;
+int kul[10];
+//SORU ORANU 366'DAAAA DEVAAMMMM ETTTTT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+FILE *sonuc;
+FILE *son1;
+FILE *_dosya;
+
+int menu(){
+	system("CLS");
+printf("\t****************************************************\n");
+printf("\t*           IQ TESTINE HOSGELDINIZ                 *\n");
+printf("\t*               KAYIT OLMAK ICIN                {1}*\n");
+printf("\t*           KAYIT GORUNTULEMEK ICIN             {2}*\n");
+printf("\t*                  TEST ICIN                    {3}*\n");
+printf("\t*         SONUCLARI GORUNTULEMEK ICIN           {4}*\n");
+printf("\t*       CEVAPLARINIZI GORUNTULEMEK ICIN         {5}*\n");
+printf("\t*             KAYIT SILMEK ICIN                 {6}*\n");
+printf("\t*             PUAN SILMEK ICIN                  {7}*\n");
+printf("\t*          SORULARI INCELEMEK ICIN              {8}*\n");
+printf("\t*                 CIKMAK ICIN                   {0}*\n");
+printf("\t****************************************************\n");
+int menuSecim;
+
+return menuSecim;
+}
+struct iq {
+     	char ad[20];
+ 		char soyad[20];
+		int id;
+		int var;
+		int sonuc;
+}kayit[100];
+
+void kayits(){//kayıtlar burası //case1
+	int s;
+	int puan;
+		FILE *_dosya;
+
+		if((_dosya=fopen("kayit.txt","a+")) == NULL){
+		printf("Dosya olusturulamadi");
+		
+		}
+		else{
+	
+
+			
+			for(s;s<1;s++)
+			{
+				printf("Adiniz: ");
+				scanf("%s",kayit[s].ad);
+				printf("\nSoyadiniz:  ");
+				scanf("%s",kayit[s].soyad);
+			
+				kayit[s].var=1;
+				kayit[s].id+=1;
+				kayit[s].sonuc= puan;
+				fprintf(_dosya,"%s %s %d %d %d\n",kayit[s].ad,kayit[s].soyad,kayit[s].sonuc,kayit[s].var,kayit[s].id);
+			}
+
+			
+			fclose(_dosya);}
+}
+
+
+void kayitgor(){
+	
+		FILE *_dosya;
+		if((_dosya=fopen("kayit.txt","r")) == NULL){
+		printf("Dosya acilamadi");
+		
+		}
+		else{
+	
+			printf(" \n        KAYITLAR         \n");
+			
+ 			while( !feof(_dosya) ){
+ 				//if(kayit[i].var==1){
+ 				
+ 				fscanf(_dosya,"%s%s%d%d%d",kayit[i].ad,kayit[i].soyad,&kayit[i].sonuc,&kayit[i].var, &kayit[i].id);
+ 				if (feof(_dosya))
+ 				break;
+ 				printf("%s\t%s\t%d\t%d\t%d\n",kayit[i].ad,kayit[i].soyad,kayit[i].sonuc,kayit[i].var ,kayit[i].id);		
+				
+			 }
+			fclose(_dosya);
+		}
+    }
+void soru1() {           //case3
+	 time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 1.Soru \n");
+	printf("A, D, G, J, ? ? isareti yerine hangi sayi gelmelidir ?");
+         printf("\n1=K \n2=S \n3=N \n4=M");
+      getch();
+    time(&end);
+    printf("soruyu cozme suresi:%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+    toplamsure+=difftime(end,start);
+}
+void soru2(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 2.Soru \n");
+	 printf("8+8/8+8*8-8 =?");
+        printf("\n1|=72\n 2|=80\n 3|=65\n 4|=62\n");
+        getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start); 
+}
+void soru3(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 3.Soru \n");
+	printf("81'in kareköküne 12'nin karesini eklediğinizde sonuc ne olur?");
+        printf("\n1|=153 \n2|=147\n3|=181\n4|=112\n");
+        getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru4(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 4.Soru \n");
+	printf("Bugun gunlerden sali ise 150 gun sonra ne olur?");
+        printf("\n1|=pazar  \n2|=cuma \n3|=cumartesi \n4|=persembe\n");
+        getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru5(){	
+time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+   	printf("\n 5.Soru \n");
+	printf("4O,5Ş,4M,5N,5M,7H,6T,7A,5E,4E,5K,? ? isareti yerine ne gelmelidir?");
+         printf("\n1|=6B \n2|=5B\n3|=5A\n4|=6A\n");
+         getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);         
+}
+void soru6(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+    printf("\n 6.Soru \n");
+	printf("52,25,77,77,x,451,605 x=nedir?");
+        printf("\n1|=24  \n2|=506 \n3|=504 \n4|=154\n");
+          getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru7(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 7.Soru \n");
+	printf("2277\n 3663\n 1970\n  4275\n 5841\n 3564 bu gruba hangisi uymaz?");
+        printf("\n1|=3564 \n2|=1970 \n3|=4275 \n4|=5841\n");
+          getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru8(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 8.Soru \n");
+	printf("\t    9\n \t   x  5\n \t 2   2   5\n \t1   1   2   5\t x yerine hangi sayi gelir?");
+        printf("\n1|= 7 \n2|=14 \n3|=4\n4|=5\n");
+          getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru9(){
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 9.Soru \n");
+    printf(" |15 27|\t |32 19|\t |22 47|\n |35 23|\t |18 31|\t |x  26|\t x=?\n   ");
+        printf("\n1|=30 \n2|=51 \n3|=42 \n4|=36\n");
+          getch();
+    time(&end);
+    printf("soruyu cozme suresi :%.2lf\n devam etmek icin 1e sonra entere basiniz..", difftime(end,start) );
+     toplamsure+=difftime(end,start);
+}
+void soru10(){
+	
+	time_t start, end;
+    time(&start);
+	system("CLS");
+	int cvp;
+	printf("\n 10.Soru \n");
+	printf("KYTEG=46251 , GTYKE=?");
+        printf("\n1|=12645 \n2|=25641\n3|=16425\n4|=12546\n");
+          getch();
+    time(&end);
+     toplamsure+=difftime(end,start);
+     printf("sinav bitirme suresi:%f", toplamsure);
+}
+void silme(){
+	int silinecekid;
+	kayitgor();
+	FILE *_dosya, *gecici;
+	_dosya=fopen("kayit.txt","a+");
+	if(_dosya==NULL){printf("\n\n...DOSYA ACILAMADI...\n\n");}
+    else{ 
+    int s;
+    gecici=fopen("gecicikayitlar.txt","a");  
+     printf("Silinecek kayit id giriniz : ");
+        scanf("%d",&silinecekid);
+ 
+        while(fscanf( _dosya,"%s%s%d%d%d",kayit[i].ad,kayit[i].soyad,&kayit[i].sonuc,&kayit[i].var,&kayit[i].id)!=EOF ){ 
+			if(silinecekid==kayit[i].id && kayit[i].var==1){
+		     
+             kayit[i].var=0;
+              
+             //fprintf(gecici,"%s %s %d %d %d\n",kayit[s].ad,kayit[s].soyad,kayit[s].yas,kayit[s].var,kayit[s].id);
+            }
+            else
+			{
+			fprintf(gecici,"%s %s %d %d %d\n",kayit[s].ad,kayit[s].soyad,kayit[s].sonuc,kayit[s].var,kayit[s].id);
+            }}
+			
+			fclose(_dosya);
+			fclose(gecici);
+			remove("kayit.txt");
+			rename("gecicikayitlar.txt","kayit.txt");
+}
+	
+}
+
+void sonuclar(){     //CASE4
+	system("CLS");
+	int i,puan[100],j,temp,indis=0 ,atayici; 
+	char tutucu[100];
+    kayit[i].sonuc=puan[i];
+     
+		if((son1=fopen("son1.txt","r")) == NULL && (_dosya=fopen("kayit.txt", "r")) == NULL ){
+		printf("Dosya acilamadi");
+		
+		}
+		else{
+			char *token;
+			//printf(" \n        PUANLAR         \n");
+			while(!feof(son1) && !feof(_dosya) ){
+			fscanf( son1 ,"%d", &puan[indis]);
+			fgets(tutucu , 100, _dosya);
+			//printf("%s\n" ,tutucu);
+			char *token=strtok(tutucu ," ");
+			strcpy(kayit[indis].ad ,token);
+			atayici=1;
+			while( token!= NULL)
+				{
+					if(atayici==1){
+						strcpy(kayit[indis].ad ,token);
+					}			 	
+					if(atayici==2){
+						strcpy(kayit[indis].soyad ,token);
+					}
+					atayici++;
+					token=strtok(NULL ," ");
+				}
+			//printf("*%s\n" ,kayit[indis].ad);
+			indis++;
+		}
+	}
+		
+	for(i=0; i<indis ;i++){
+  		for(j=0; j<indis; j++)
+  		{
+	  		if(puan[i]>puan[j]){
+	  		temp=puan[i];
+			puan[i]=puan[j];
+		    puan[j]=temp;	
+			}
+	}
+		}	
+	  printf("puanlar:\n");
+	  for(i=0;i<5;i++)
+	  {
+	  	printf("Kisinin Soy Adi:%s %s %d\n", kayit[i].ad,kayit[i].soyad ,puan[i+1]);
+	  }
+		fclose(_dosya);
+		fclose(son1);
+}
+
+void soruoran(){
+ 	FILE *oran;
+	int soruOran;
+	int a;	
+	int b=0;
+	oran = fopen("oranlar.txt", "w");
+	for(soruOran=0;soruOran<12;soruOran++){
+		fprintf(oran ,"%d\n", kul[soruOran]);
+		
+	}fclose(oran);
+	
+	oran=fopen("oranlar.txt", "r");
+	while(!feof(oran)){
+	fscanf(oran ,"%d", &oran);	
+	for(a=1;a<11;a++){
+	
+		printf("%d. sorunuzun dogruluk degeri %d \n",a,kul[b]);
+		b++;
+	}}	fclose(oran);
+	system("pause");}
+	
+	
+	void puanoku(){
+	
+		FILE *son1;
+		int puanoku;
+		son1=fopen("son1.txt","r");
+		while( fscanf(son1,"%s %d",kayit[i].ad,&puanoku)!= EOF ){
+			
+			printf("%s puaniniz= %d\n",kayit[i].ad,puanoku);
+				if(feof(son1))
+		break;
+		}
+		fclose(son1);
+	
+	}
+	
+	
+	void ilk5() //case4
+{
+    system("CLS");
+	int puano[100],b,k,indis=1,temp;
+	 //b=i k=j gibi düşünün.
+	 if((son1=fopen("son1.txt","r")) == NULL){
+		printf("Dosya acilamadi");
+		
+		}
+	else
+	{
+		while(!feof(son1)){
+	fscanf(son1, "%s%d" , kayit[i].ad, &puano[indis]);
+	indis++;
+	
+}
+}
+			for(b=0; b<indis ;b++){
+  		for(k=0; k<indis; k++)
+  		{
+	  		if(puano[b]>puano[k]){
+	  		temp=puano[b];
+			puano[b]=puano[k];
+		    puano[k]=temp;	
+			}
+	}
+		}
+			for(b=0; b<5 ;b++){
+				i++;
+				printf("Kisinin Adi:%s %d\n", kayit[i].ad ,puano[b+1]);
+				
+		}
+		fclose(son1);
+}
+	
+void puansilme(){       //CASE 7
+	char ad[20];
+	puanoku();
+	FILE *son1, *gecici1;
+	int puanoku;
+	son1=fopen("son1.txt","a+");
+	if(son1==NULL){printf("\n\n...DOSYA ACILAMADI...\n\n");}
+    else{ 
+   
+    gecici1=fopen("gecici1.txt","a");  
+     printf("Silinecek ad giriniz : ");
+        scanf("%s",ad);
+ 
+        while(fscanf( son1,"%s%d",kayit[i].ad,&puanoku)!=EOF ){ 
+			if(ad==kayit[i].ad && kayit[i].var==1){
+		     
+             kayit[i].var=0;
+              
+             //fprintf(gecici,"%s %s %d %d %d\n",kayit[s].ad,kayit[s].soyad,kayit[s].yas,kayit[s].var,kayit[s].id);
+            }
+            else
+			{
+			fprintf(gecici1,"%s%d\n",kayit[i].ad,puanoku);
+            }}
+			
+			fclose(son1);
+			fclose(gecici1);
+			remove("son1.txt");
+			rename("gecici1.txt","son1.txt");
+}
+	
+}
+	
+ void soruOrani(){     //CASE8
+ 	int x;
+ 	    printf("hangi sorunun oranini gormek istersiniz?");
+ 	    scanf("%d",&x);
+ 		printf("kullaniciler_%d",kul[x]);
+	 }
+int main(){
+	system("color F5");
+	int menuSecim;
+	int cvp;
+	int puan;
+	int dongu=0 ,j;
+	int soruOran=0;
+	int incele;
+	int ts;
+	if((_dosya=fopen("kayit.txt","r")) == NULL){
+		printf("Dosya acilamadi");
+		}
+		else{
+ 			while( !feof(_dosya) ){
+			fscanf(_dosya, "%s%s%d%d", kayit[i].ad,kayit[i].soyad,&kayit[i].var,&kayit[i].id);
+			 }
+			fclose(_dosya);
+			}
+	
+	while(dongu==0){
+	menu();
+	printf("Seciminizi giriniz: ");
+scanf("%d", &menuSecim);
+	
+	switch(menuSecim){
+		case 1:
+			kayits();
+			break;
+		case 2:
+			kayitgor();
+			system("pause");
+			break;
+		case 3://test buraya
+		soru1();
+	scanf("%d", &cvp);
+	if(cvp==3){
+		puan+=10;
+		kul[0]+=1;
+	}
+	soru2();
+	scanf("%d", &cvp);
+	if(cvp==3){
+		puan+=10;
+		kul[1]+=1;
+	}
+	soru3();
+	scanf("%d", &cvp);
+	if(cvp==1){
+		puan+=10;
+		kul[2]+=1;
+	}
+	soru4();
+	scanf("%d", &cvp);
+	if(cvp==2){
+		puan+=10;
+		kul[3]+=1;
+	}
+	soru5();
+	scanf("%d", &cvp);
+	if(cvp==4){
+		puan+=10;
+		kul[4]+=1;
+	}
+		
+	soru6();
+	scanf("%d", &cvp);
+	if(cvp==4){
+		puan+=10;
+		kul[5]+=1;
+	}
+	soru7();
+	scanf("%d", &cvp);
+	if(cvp==2){
+		puan+=10;
+		kul[6]+=1;
+	}
+	soru8();
+	scanf("%d", &cvp);
+	if(cvp==3){
+		puan+=10;
+		kul[7]+=1;
+	}
+	soru9();
+	scanf("%d", &cvp);
+	if(cvp==2){
+		puan+=10;
+		kul[8]+=1;
+	}
+	
+	soru10();
+	scanf("%d", &cvp);
+	if(cvp==1){
+		puan+=10;
+		kul[9]+=1;
+	}
+	puan+=(floor(600-toplamsure)/4);
+	
+	sonuc=fopen("son1.txt","a");
+	fprintf(sonuc,"%s %d\n",kayit[i].ad,puan);
+	fclose(sonuc);
+	
+	
+	
+	break;
+	
+		case 4:
+			printf("Tum sonuclar icin 1e basiniz \n");
+					printf("Ilk 5 icin 2'ye basiniz \n");
+					scanf("%d",&ts);
+					if(ts==1){
+						puanoku();
+					}
+					else{
+						ilk5();
+					}
+			system("pause");
+	    	break;
+		case 5:
+			soruoran();
+			system("pause");
+			break;
+		case 6:
+				silme();
+				system("pause");
+				break;
+		case 7:
+		puansilme();
+		system("pause");
+			break;
+		case 8:
+			printf("ncelemek istediginiz soruyu giriniz..");
+			scanf("%d",&incele);
+			switch(incele){
+				case 1:
+					soru1();
+					break;
+				case 2:
+					soru2();
+					break;
+				case 3:
+					soru3();
+					break;
+				case 4:
+					
+					soru4();
+					break;
+				case 5:
+					soru5();
+					break;
+				case 6:
+					soru6();
+					break;
+				case 7:
+					soru7();
+					break;
+				case 8:
+					soru8();
+					break;
+				case 9:
+					soru9();
+			        break;
+			    case 10:
+			    	soru10();
+			    	break;
+			
+			}
+			menu(); 
+			system("pause");
+			break;   
+		case 0:
+			return 0;
+		default:
+			printf("Yanlis secim yaptiniz!..");} }
+	
+
+ 	
+ 
+ return 0;}
